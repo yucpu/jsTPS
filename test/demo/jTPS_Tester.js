@@ -79,6 +79,6 @@ class jTPS_Tester {
                 keepGoing = false;
             }
         }
-        System.out.println("GOODBYE");
+        document.write("GOODBYE");
     }
 }

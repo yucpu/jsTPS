@@ -264,4 +264,8 @@ class jTPS_Unit_Tests {
         Assert.assertEquals(0, tps.getRedoSize());
         Assert.assertEquals(3, tps.getUndoSize());
     }
+    show(i) {
+    document.write(i);
 }
+}
+
