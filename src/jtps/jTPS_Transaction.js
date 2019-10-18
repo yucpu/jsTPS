@@ -1,3 +1,4 @@
+
 /**
  * jTPS_Transaction.java
  * 
@@ -12,13 +13,20 @@
  * @version 2.0
  */
 class jTPS_Transaction {
+    constructor(){
+        
+    }
     /**
      * This method is called by jTPS when a transaction is executed.
      */
-    doTransaction();
+    doTransaction(){
+
+    }
     
     /**
      * This method is called by jTPS when a transaction is undone.
      */
-    undoTransaction();
+    undoTransaction(){
+
+    }
 }

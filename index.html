@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test Page</title>
+        <style type="text/css">
+            #inner{
+                height:610px;
+                width: 400px;;
+                overflow-x:scroll;
+                overflow-y: scroll;
+            }
+
+        </style>
+        <script  src="./test/junit_test_beds/jTPS_Unit_Tests.js"></script>
+        <script  src="./src/jtps/jTPS.js"></script>
+        <script  src="./src/jtps/jTPS_Transaction.js"></script>
+        <script  src="./test/demo/AndMask_Transaction.js"></script>
+        <script  src="./test/demo/jTPS_Tester.js"></script>
+        <script  src="./test/demo/Num.js"></script>
+        <script  src="./test/demo/OrMask_Transaction.js"></script>
+        <script  src="./test/demo/AddToNum_Transaction.js"></script>
+        <script>
+            test = new jTPS_Unit_Tests();
+            test1 = new jTPS_Tester();
+            test2 = new jTPS_Transaction();
+            test3 = new AddToNum_Transaction(7,8);
+            test4 = new AndMask_Transaction();
+            test5 = new Num();
+                      
+            function printout1(html,info){
+                let a = ""+html.id;
+                console.log(a);
+                document.getElementById(a).innerHTML += "<p> Current_Num ->"+info+"</p>";
+            }
+            function addValue(){
+                return document.getElementById("textfield").value
+                
+            }
+            function clearAll(){
+                document.getElementById("output1").innerHTML = "";
+            }
+            window.onload = function(){
+                document.getElementById("textfield").value = test1.getNum();
+                document.getElementById("output1").innerHTML = "Init_Num->"+test1.getNum();
+            }
+            
+        </script>
+
+    </head>
+    <body>
+        <h1>Test Page</h1>
+        <div>
+        <button class="button" id="b1" onclick=printout1(output1,test1.add_transaction(addValue()))>1</button>
+        <button class="button" id="b2" onclick=printout1(output1,test1.undoTransaction())>2</button>
+        <button class="button" id="b3" onclick=printout1(output1,test1.doTransaction())>3</button>
+        <button class="button" id="b4" onclick=printout1(output1,test1.clearAllTransactions())>4</button>
+        <button class="button" id="b5" onclick=printout1(output1,test1.clearAllTransactions2())>5</button>
+        <button class="button" id="b6"onclick="clearAll()">clearAll</button>
+        </div>
+
+        <div>
+            <input id="textfield" type="number" value="0"> 
+            <button onclick="">Add</button>
+        </div>
+        
+        <div id = "inner">
+            <html>
+                <head>
+                </head>
+                <body>
+                    <span id="output1">
+                        
+                    </span>
+                    <p id=p2></p>
+                    <p id=p3></p>
+                    <p id=p4></p>
+                </body>
+            </html>
+        </div>
+    </body>
+</html>

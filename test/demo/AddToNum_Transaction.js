@@ -1,5 +1,4 @@
 
-
 /**
  * AddToNum_Transaction.java
  * 
@@ -10,25 +9,15 @@
  * @author THE McKilla Gorilla (accept no imposters)
  * @version 2.0
  */
+//import jTPS_Transaction from 'src/jtps/jTPS_Transaction.js' 
 class AddToNum_Transaction extends jTPS_Transaction {
     // THIS IS THE OBJECT IT WILL MANIPULATE
-    num;
+    constructor(initNum, initAmountToAdd){
+        super();
+        this.num =initNum;
     
     // AMOUNT TO ADD/REMOVE FOR NUM
-    amountToAdd; 
-
-    /**
-     * Constructor for this transaction, it initializes this
-     * object with all the data needed to both do and undo
-     * the transaction.
-     * 
-     * @param initNum
-     * @param initAmountToAdd 
-     */
-    AddToNum_Transaction(initNum,initAmountToAdd) {
-        // KEEP THESE FOR LATER
-        num = initNum;
-        amountToAdd = initAmountToAdd;
+        this.amountToAdd=initAmountToAdd; 
     }
 
     /**
@@ -36,9 +25,9 @@ class AddToNum_Transaction extends jTPS_Transaction {
      */
     
     doTransaction() {
-        oldNum = num.getNum();
-        newNum = oldNum + amountToAdd;
-        num.setNum(newNum);
+        let oldNum = this.num.getNum();
+        let newNum = oldNum + this.amountToAdd;
+        this.num.setNum(newNum);
     }
 
     /**
@@ -46,9 +35,9 @@ class AddToNum_Transaction extends jTPS_Transaction {
      */
     
     undoTransaction() {
-        oldNum = num.getNum();
-        newNum = oldNum - amountToAdd;
-        num.setNum(newNum);
+        let oldNum = this.num.getNum();
+        let newNum = oldNum - this.amountToAdd;
+        this.num.setNum(newNum);
     }
 
     /**
@@ -58,6 +47,6 @@ class AddToNum_Transaction extends jTPS_Transaction {
      */
 
     toString() {
-        return "Add " + amountToAdd;
+        return "Add " + this.amountToAdd;
     }
 }

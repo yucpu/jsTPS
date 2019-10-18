@@ -10,17 +10,17 @@
  * @version 2.0
  */
 class Num {
-
+    constructor(){
     // THE NUMBER THIS CLASS MANAGES
-    num = 0;
-
+        this.num = 0;
+    }
     /**
      * Mutator method for the num instance variable.
      *
      * @param initNum The value to set num to.
      */
     setNum(initNum) {
-        num = initNum;
+        this.num = initNum;
     }
 
     /**
@@ -29,11 +29,11 @@ class Num {
      * @return The num instance variable value.
      */
     getNum() {
-        return num;
+        return this.num;
     }
 
     andMask(mask) {
-        num = num & mask;
+        this.num = num & mask;
     }
 
     orMask(mask) {

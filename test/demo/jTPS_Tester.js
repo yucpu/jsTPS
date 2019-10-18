@@ -1,5 +1,3 @@
-
-
 /**
  * This driver demonstrates simple usage of the jTPS API.
  * 
@@ -7,78 +5,69 @@
  * @version 2.0
  */
 class jTPS_Tester {
-    // HERE'S OUR TRANSACTION PROCESSING SYSTEM
-    tps = new jTPS();
+    constructor(){
+        this.tps = new jTPS();
     
     // HERE'S THE DATA WE'RE MANIPULATING IN THIS DEMO
-    num = new Num();
-    
-    // THESE ARE TO HELP WITH I/O
-    input = new Scanner(System.in);
-    out = System.out;
-
-    /**
-     * This runs our demo program. Note that it presents a 
-     * menu, retrieves the input, and executes the selected
-     * behavior.
-     * 
-     * @param args Not used in this demo.
-     */
-    main(args) {
-        // LOOP FLAG VARIABLE
-        keepGoing = true;
-        while (keepGoing) {
-            // DISPLAY THE CURRENT TPS
-            out.println("CURRENT jTPS:");
-            out.println(tps);
-            out.println();
-            
-            // DISPLAY NUM
-            out.println("num is " + num.getNum());
-            out.println();
-            
-            // DISPLAY THE MENU
-            out.println("ENTER A SELECTION");
-            out.println("1) Add a Transaction");
-            out.println("2) Undo a Transaction");
-            out.println("3) Redo a Transaction");
-            out.println("4) Clear All Transactions");
-            out.println("5) Reset Num and Transactions");
-            out.print("-");
-
-            // GET THE USER SELECTION
-            entry = input.nextLine();
-            
-            // ADD AND EXECUTE A TRANSACTION
-            if (entry.startsWith("1")) {
-                System.out.print("\nEnter an amount to add: ");
-                entry = input.nextLine();
-                amountToAdd = Integer.parseInt(entry);
-                transaction = new AddToNum_Transaction(num, amountToAdd);
-                tps.addTransaction(transaction);
-            }            
-            // UNDO A TRANSACTION
-            else if (entry.startsWith("2")) {
-                tps.undoTransaction();
-            }
-            // REDO A TRANSACTION
-            else if (entry.startsWith("3")) {
-                tps.doTransaction();
-            }
-            // CLEAR ALL TRANSACTIONS
-            else if (entry.startsWith("4")) {
-                tps.clearAllTransactions();
-            }
-            // CLEAR ALL TRANSACTIONS AND RESET NUM TO 0
-            else if (entry.startsWith("5")) {
-                tps.clearAllTransactions();
-                num.setNum(0);
-            }
-            // QUIT
-            else if (entry.startsWith("Q")) {
-                keepGoing = false;
-            }
-        }
-        document.write("GOODBYE");
+        this.num = new Num();
     }
+    // HERE'S OUR TRANSACTION PROCESSING SYSTEM  
+    
+    // add
+    add_transaction(info){
+        let entry = parseInt(info);
+        let transaction = new AddToNum_Transaction(this.num,entry);
+        this.tps.addTransaction(transaction);
+        return " After Add -> "+this.getNum()+'<br/>'+'\n'+
+                "1) Add a Transaction"+'<br/>'+'\n'+
+                "2) Undo a Transaction"+'<br/>'+'\n'+
+                "3) Redo a Transaction"+'<br/>'+'\n'+
+                "4) Clear All Transactions"+'<br/>'+'\n'+
+                "5) Reset Num and Transactions"+'<br/>'+'\n';
+    }
+    getNum(){
+        return this.num.getNum();
+    }
+    //undo
+    undoTransaction(){
+        this.tps.undoTransaction();
+        return " After Undo -> "+this.getNum()+'<br/>'+'\n'+
+                "1) Add a Transaction"+'<br/>'+'\n'+
+                "2) Undo a Transaction"+'<br/>'+'\n'+
+                "3) Redo a Transaction"+'<br/>'+'\n'+
+                "4) Clear All Transactions"+'<br/>'+'\n'+
+                "5) Reset Num and Transactions"+'<br/>'+'\n';
+    }
+    //redo
+    doTransaction(){
+        this.tps.doTransaction();
+        return " After Redo -> "+this.getNum()+'<br/>'+'\n'+
+                "1) Add a Transaction"+'<br/>'+'\n'+
+                "2) Undo a Transaction"+'<br/>'+'\n'+
+                "3) Redo a Transaction"+'<br/>'+'\n'+
+                "4) Clear All Transactions"+'<br/>'+'\n'+
+                "5) Reset Num and Transactions"+'<br/>'+'\n';
+    }
+    //clearTransaction
+    clearAllTransactions(){
+        this.tps.clearAllTransactions();
+        return " After clearAllTransactions -> "+this.getNum()+'<br/>'+'\n'+
+                "1) Add a Transaction"+'<br/>'+'\n'+
+                "2) Undo a Transaction"+'<br/>'+'\n'+
+                "3) Redo a Transaction"+'<br/>'+'\n'+
+                "4) Clear All Transactions"+'<br/>'+'\n'+
+                "5) Reset Num and Transactions"+'<br/>'+'\n';
+    }
+    clearAllTransactions2(){
+        this.tps.clearAllTransactions();
+        this.num.setNum(0);
+        return " After clearAllTransaction and Reset -> "+this.getNum()+'<br/>'+'\n'+
+                "1) Add a Transaction"+'<br/>'+'\n'+
+                "2) Undo a Transaction"+'<br/>'+'\n'+
+                "3) Redo a Transaction"+'<br/>'+'\n'+
+                "4) Clear All Transactions"+'<br/>'+'\n'+
+                "5) Reset Num and Transactions"+'<br/>'+'\n';
+    }
+
+
 }

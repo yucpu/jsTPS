@@ -11,11 +11,10 @@ class jTPS_Unit_Tests {
     /**
      * This JUnit test is for testing the adding of transactions.
      */
-    
-    testAdd() {
+     testAdd() {
         // WE'LL JUST USE A SIMPLE NUM FOR TESTING
-        tps = new jTPS();
-        num = new Num();
+        let tps = new jTPS();
+        let num = new Num();
         Assert.assertEquals(0, num.getNum());
         
         // ADD 5 TRANSACTION
@@ -45,8 +44,8 @@ class jTPS_Unit_Tests {
      */
     testAndMask() {
         // WE'LL JUST USE A SIMPLE NUM FOR TESTING
-        tps = new jTPS();
-        num = new Num();
+        let tps = new jTPS();
+        let num = new Num();
         Assert.assertEquals(0, num.getNum());
         
         // ADD 5 TRANSACTION
@@ -72,8 +71,8 @@ class jTPS_Unit_Tests {
      */
     testUndo() {
         // WE'LL JUST USE A SIMPLE NUM FOR TESTING
-        tps = new jTPS();
-        num = new Num();
+        let tps = new jTPS();
+        let num = new Num();
         Assert.assertEquals(num.getNum(), 0);
         Assert.assertFalse(tps.hasTransactionToUndo());
         Assert.assertFalse(tps.hasTransactionToRedo());
@@ -132,8 +131,8 @@ class jTPS_Unit_Tests {
      */
     testRedo() {
         // WE'LL JUST USE A SIMPLE NUM FOR TESTING
-        tps = new jTPS();
-        num = new Num();
+        let tps = new jTPS();
+        let num = new Num();
         Assert.assertEquals(num.getNum(), 0);
         
         // ADD 3 TRANSACTIONS (5, 10, and 15)
@@ -219,8 +218,8 @@ class jTPS_Unit_Tests {
      */
     testClear() {
         // WE'LL JUST USE A SIMPLE NUM FOR TESTING
-        tps = new jTPS();
-        num = new Num();
+        let tps = new jTPS();
+        let num = new Num();
         Assert.assertEquals(num.getNum(), 0);
         
         // ADD 3 TRANSACTIONS (5, 10, and 15)
@@ -265,7 +264,7 @@ class jTPS_Unit_Tests {
         Assert.assertEquals(3, tps.getUndoSize());
     }
     show(i) {
-    document.write(i);
+    console.log(5);
 }
 }
 

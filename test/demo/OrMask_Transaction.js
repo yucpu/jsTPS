@@ -5,27 +5,11 @@
  * @author McKillaGorilla
  */
 class OrMask_Transaction extends jTPS_Transaction {
-    // THIS IS THE OBJECT IT WILL MANIPULATE
-    num;
-    
-    intNum;
-    
-    // AMOUNT TO MASK FOR NUM
-    mask;
-
-    /**
-     * Constructor for this transaction, it initializes this
-     * object with all the data needed to both do and undo
-     * the transaction.
-     * 
-     * @param initNum
-     * @param initAmountToAdd 
-     */
-    OrMask_Transaction(initNum, initIntNum, initMask) {
-        // KEEP THESE FOR LATER
-        num = initNum;
-        intNum = initIntNum;
-        mask = initMask;
+    constructor(initNum, initIntNum, initMask){
+        super()
+        this.num = initNum;
+        this.intNum = initIntNum;
+        this.mask = initMask;
     }
 
     /**
@@ -33,7 +17,7 @@ class OrMask_Transaction extends jTPS_Transaction {
      */
     
     doTransaction() {
-        num.orMask(mask);
+        this.num.orMask(mask);
     }
 
     /**
@@ -41,7 +25,7 @@ class OrMask_Transaction extends jTPS_Transaction {
      */
     
     undoTransaction() {
-        num.setNum(intNum);
+        this.num.setNum(intNum);
     }
 
     /**
@@ -51,6 +35,6 @@ class OrMask_Transaction extends jTPS_Transaction {
      */
     
     toString() {
-        return "Or Mask " + mask;
+        return "Or Mask " + this.mask;
     }
 }

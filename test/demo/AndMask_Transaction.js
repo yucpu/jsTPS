@@ -5,13 +5,17 @@
  * @author McKillaGorilla
  */
 class AndMask_Transaction extends jTPS_Transaction {
+
+    constructor(){
     // THIS IS THE OBJECT IT WILL MANIPULATE
-    num;
+        super();
+        var num = 0;
     
-    intNum;
+        var intNum = 0;
     
     // AMOUNT TO MASK FOR NUM
-    mask;
+        var mask ;
+    }
 
     /**
      * Constructor for this transaction, it initializes this
