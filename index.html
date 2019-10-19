@@ -9,6 +9,12 @@
                 overflow-x:scroll;
                 overflow-y: scroll;
             }
+            #zz{
+                height:610px;
+                width: 400px;;
+                overflow-x:scroll;
+                overflow-y: scroll;
+            }
 
         </style>
         <script  src="./test/junit_test_beds/jTPS_Unit_Tests.js"></script>
@@ -42,6 +48,12 @@
             window.onload = function(){
                 document.getElementById("textfield").value = test1.getNum();
                 document.getElementById("output1").innerHTML = "Init_Num->"+test1.getNum();
+                test.testAdd();
+                test.testAndMask();
+                test.testOrMask();
+                test.testUndo();
+                test.testRedo();
+                test.testClear();
             }
             
         </script>
@@ -74,6 +86,20 @@
                     <p id=p2></p>
                     <p id=p3></p>
                     <p id=p4></p>
+                </body>
+            </html>
+        </div>
+        <div id = "zz">
+            <html>
+                <head>
+                </head>
+                <body>
+                    <span id="zzz">
+                        
+                    </span>
+                    <p id=z1></p>
+                    <p id=z2></p>
+                    <p id=z4></p>
                 </body>
             </html>
         </div>

@@ -196,6 +196,8 @@ class jTPS {
      * @return true if a redo operation is possible, false otherwise.
      */
     hasTransactionToRedo() {
+        console.log(this.mostRecentTransaction);
+        console.log(this.transactions.length-1);
         return this.mostRecentTransaction < (this.transactions.length-1);
     }
         
