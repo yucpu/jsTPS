@@ -10,6 +10,8 @@
       "friends":[123],
       "games":[9123]
    },
-  "login":{"token":"SDF7FQ6F"},
+  "login":{
+    "token":"SDF7FQ6F",
+  },
   
 }
