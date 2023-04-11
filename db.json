@@ -1,5 +1,5 @@
 {
-  "user":{
+  "user": {
       "userID":124,
       "username":"jack#4312",
       "nickname":"Dark Magican",
@@ -10,7 +10,7 @@
       "friends":[123],
       "games":[9123]
    },
-  "login":{
+  "login": {
     "token":"SDF7FQ6F",
   },
   
